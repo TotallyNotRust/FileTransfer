@@ -2,10 +2,10 @@ import socket
 import tqdm
 import os
 import time
+from clientErrors import *
 from listbox import *
 
-
-if input("yes?: ") in "yes":
+if (x:= input("Send or receive?: ").lower()) in "send":
     SEPARATOR = "<SEPARATOR>"
     BUFFER_SIZE = 4096 
 
@@ -35,7 +35,7 @@ if input("yes?: ") in "yes":
             s.sendall(bytes_read)
             progress.update(len(bytes_read))
     s.close()
-else:
+elif x in "receive":
     SERVER_HOST = "0.0.0.0"
     SERVER_PORT = 5001
     BUFFER_SIZE = 4096
@@ -67,3 +67,8 @@ else:
 
     client_socket.close()
     s.close()
+else:
+    try:
+        raise InputError("Uknown input")
+    except Exception as e:
+        print(e)

@@ -1,6 +1,5 @@
 from tkinter import *
-from tkinter import filedialog, dnd
-from tkinter.dnd import DndHandler
+from tkinter import filedialog
 import re, windnd
 
 data = []
@@ -64,7 +63,10 @@ def add(file = None):
     insert()
 
 
-def init(name=None):
+def init(name: str=""):
+    '''
+    Initialize new dnd input window
+    '''
     global lb
     root = Tk()
     master = Frame()
