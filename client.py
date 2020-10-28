@@ -35,7 +35,7 @@ if (x:= input("Send or receive?: ").lower()) in "send":
                 progress.update(len(bytes_read))
             s.close()
     except Exception as e:
-        print("Server decided so close :)")
+        print("Server decided so close... :)")
         print(e)
 
 elif x in "receive":
@@ -45,7 +45,7 @@ elif x in "receive":
     SEPARATOR = "<SEPARATOR>"
     s = socket.socket()
     s.bind((SERVER_HOST, SERVER_PORT))
-    while True:
+    while True: 
         try:
             s.listen(5)
             print(f"[*] Listening as {socket.gethostbyname(socket.gethostname())}:{SERVER_PORT}")
