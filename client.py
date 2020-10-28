@@ -35,7 +35,7 @@ if (x:= input("Send or receive?: ").lower()) in "send":
                 progress.update(len(bytes_read))
             s.close()
     except Exception as e:
-        print("Server decided so close... :)")
+        print("Server decided so close :)")
         print(e)
 
 elif x in "receive":
